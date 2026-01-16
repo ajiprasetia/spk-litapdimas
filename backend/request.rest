@@ -1,0 +1,50 @@
+// requests.http
+@baseUrl = http://localhost:5000/api/auth
+
+### Create Admin
+POST {{baseUrl}}/create-admin
+Content-Type: application/json
+
+{
+    "nama": "Administrator",
+    "email": "adminlppm@gmail.com",
+    "password": "admin123"
+}
+
+### Register User
+POST {{baseUrl}}/register
+Content-Type: application/json
+
+{
+    "nama": "User Test",
+    "email": "user@test.com",
+    "password": "user123"
+}
+
+### Login Admin
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+    "email": "admin@lppm.com",
+    "password": "admin123"
+}
+
+### Login User
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+    "email": "user123@test.com",
+    "password": "user123"
+}
+
+### Change Password (requires token)
+POST {{baseUrl}}/change-password
+Content-Type: application/json
+Authorization: Bearer your_token_here
+
+{
+    "currentPassword": "old_password",
+    "newPassword": "new_password"
+}

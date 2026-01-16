@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes flipIn {
+  0% { 
+    transform: perspective(400px) rotateX(-90deg);
+    opacity: 0;
+  }
+  100% { 
+    transform: perspective(400px) rotateX(0);
+    opacity: 1;
+  }
+}
+
+.flip-animation {
+  animation: flipIn 0.3s ease-out;
+  transform-origin: top center;
+  backface-visibility: hidden;
+}
